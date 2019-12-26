@@ -1,4 +1,4 @@
-package com.mdk.myapplication;
+package com.mdk.myapplication.helper.callbacks;
 
 public interface Callback {
 

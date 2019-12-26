@@ -16,12 +16,16 @@ import com.mdk.myapplication.ui.login.SignInActivity;
 
 public class FourthInfoFragment extends Fragment {
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         final View rootView = inflater.inflate(R.layout.fragment_fourth_info, container, false);
         final Button startButton = rootView.findViewById(R.id.start_button);
+
+        String topImage = getArguments().getString("topImage", "");
+        String background = getArguments().getString("background", "");
+        String title = getArguments().getString("title", "");
+        String exp = getArguments().getString("exp", "");
 
         startButton.setOnClickListener(new View.OnClickListener() {
             @Override

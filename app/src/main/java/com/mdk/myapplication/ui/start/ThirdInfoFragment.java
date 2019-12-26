@@ -15,12 +15,18 @@ import com.mdk.myapplication.R;
 
 public class ThirdInfoFragment extends Fragment {
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_third_info, container, false);
+        final View rootView = inflater.inflate(R.layout.fragment_third_info, container, false);
+
+        String topImage = getArguments().getString("topImage", "");
+        String background = getArguments().getString("background", "");
+        String title = getArguments().getString("title", "");
+        String exp = getArguments().getString("exp", "");
+
+        return rootView;
     }
 
     public static Fragment fragmentThird(String topImage, String background, String title, String exp) {

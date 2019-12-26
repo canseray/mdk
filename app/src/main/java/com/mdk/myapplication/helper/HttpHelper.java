@@ -8,7 +8,7 @@ import android.os.AsyncTask;
 import android.util.Pair;
 
 import com.mdk.myapplication.APP;
-import com.mdk.myapplication.Callback;
+import com.mdk.myapplication.helper.callbacks.Callback;
 import com.mdk.myapplication.db.IntroScreenItem;
 import com.mdk.myapplication.helper.callbacks.IntroScreenItemCallback;
 

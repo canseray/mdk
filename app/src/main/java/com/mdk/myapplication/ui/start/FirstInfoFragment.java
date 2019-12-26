@@ -14,13 +14,10 @@ import com.mdk.myapplication.R;
 
 public class FirstInfoFragment extends Fragment {
 
-
-    View rootView;
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        rootView = inflater.inflate(R.layout.fragment_first_info, container, false);
+        final View rootView = inflater.inflate(R.layout.fragment_first_info, container, false);
 
         String topImage = getArguments().getString("topImage", "");
         String background = getArguments().getString("background", "");

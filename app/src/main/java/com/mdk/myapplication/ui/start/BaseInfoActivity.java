@@ -3,17 +3,9 @@ package com.mdk.myapplication.ui.start;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
-import android.app.ProgressDialog;
 import android.content.Context;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
-import android.util.Pair;
 
-import com.mdk.myapplication.APP;
-import com.mdk.myapplication.Callback;
 import com.mdk.myapplication.R;
 import com.mdk.myapplication.adapter.BaseInfoAdapter;
 import com.mdk.myapplication.db.IntroScreenItem;
@@ -22,14 +14,8 @@ import com.mdk.myapplication.helper.callbacks.IntroScreenItemCallback;
 import com.mdk.myapplication.ui.base.BaseActivity;
 import com.rd.PageIndicatorView;
 
-import org.w3c.dom.Document;
-
-import java.io.ByteArrayInputStream;
 import java.util.ArrayList;
 import java.util.List;
-
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
 
 public class BaseInfoActivity extends BaseActivity {
     private final String TAG = BaseInfoActivity.class.getName();

@@ -3,6 +3,8 @@ package com.mdk.myapplication;
 import android.util.Base64;
 import android.util.Pair;
 
+import com.mdk.myapplication.helper.callbacks.Callback;
+
 import org.w3c.dom.Document;
 
 import java.io.IOException;
@@ -40,7 +42,7 @@ public class APP {
         return text1;
     }
 
-    public static void post1(List<Pair<String, String>> nameValuePairs, String services_part,Callback callback) {
+    public static void post1(List<Pair<String, String>> nameValuePairs, String services_part, Callback callback) {
 
         try {
             FormBody.Builder formBodyBuilder = new FormBody.Builder();
