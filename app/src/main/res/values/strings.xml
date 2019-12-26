@@ -1,0 +1,41 @@
+<resources>
+    <string name="app_name">MDK</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="sign_in_text">Lütfen kayıtlı kullanıcı bilgilerinizi kullanarak uygulamaya giriş yapınız.</string>
+    <string name="forgot_password_info_text">Lütfen kullanıcı hesabınızı oluştururken kullandığınız E-posta adresinizi yazınız..</string>
+    <string name="user_info_text">Lütfen Adınızı ve Soyadınızı girerek bir sonraki adım için Devam Et butonuna dokununuz.</string>
+    <string name="cong_long_text">Tüm kullanıcı kayıt adımlarını başarılı bir şekilde tamamladınız.Lütfen aşağıdaki Tamamla butonuna dokunarak yeni kullanıcı kaydınızı oluşturunuz</string>
+    <string name="next_text">Devam Et</string>
+    <string name="signin_text">Giriş Yap</string>
+    <string name="send_text">Gönder</string>
+    <string name="forgot_password_text">Şifemi Unuttum</string>
+    <string name="new_user">Yeni Üye</string>
+    <string name="eposta_text">E posta Adresiniz *</string>
+    <string name="password_text">Şifreniz *</string>
+    <string name="name_text">Adınız *</string>
+    <string name="surname_text">Soyadınız *</string>
+    <string name="user_info">KULLANICI BİLGİSİ</string>
+    <string name="phone_number">(5XX) XXX-XXXX</string>
+    <string name="user_password">Şifreniz *</string>
+    <string name="contact_info">İLETİŞİM BİLGİSİ</string>
+    <string name="city_info">ŞEHİR BİLGİSİ</string>
+    <string name="cong_text">TEBRİKLER !</string>
+    <string name="back_step">Önceki Adım</string>
+    <string name="start_again">Yeniden başla</string>
+    <string name="complate_text">KAYDI TAMAMLA</string>
+    <string name="home_text">08:00 - 19:00 Saatleri arası randevu alabilirsiniz.</string>
+    <string name="hairdresser_service">Kuaför Hizmetleri</string>
+    <string name="beauty_service">Güzellik Hizmetleri</string>
+    <string name="aesthetic_service">Este-Clinic Hizmetleri</string>
+    <string name="notifications">Bildirimler</string>
+    <string name="mdcoin">MDKoin</string>
+    <string name="treats">İkramlarımız</string>
+    <string name="campaign">Kampanyalar</string>
+    <string name="about_us">Hakkımızda</string>
+    <string name="contact_us">İletişim</string>
+    <string name="suggestion">Görüş ve Öneriler</string>
+    <string name="appointment">Randevu Al</string>
+    <string name="check_in">Check-in Yap</string>
+
+
+</resources>

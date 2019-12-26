@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.login.SignInActivity"
+    android:orientation="vertical"
+    android:background="#000">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        <ImageView
+            android:layout_marginStart="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            android:id="@+id/signin_exit_img"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_exit_button"/>
+        <TextView
+            app:layout_constraintStart_toEndOf="@+id/signin_exit_img"
+            app:layout_constraintEnd_toStartOf="@+id/signin_new_tv"
+            android:id="@+id/signin_sign_tv"
+            android:textAllCaps="true"
+            android:text="@string/signin_text"
+            android:textSize="22sp"
+            android:textColor="#fff"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"/>
+        <TextView
+            app:layout_constraintEnd_toEndOf="parent"
+            android:id="@+id/signin_new_tv"
+            android:text="@string/new_user"
+            android:textColor="#fff"
+            android:textSize="16sp"
+            android:lines="2"
+            android:layout_width="50dp"
+            android:layout_height="50dp"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:layout_marginTop="10dp"
+        android:paddingHorizontal="2dp"
+        android:textSize="16sp"
+        android:gravity="center"
+        android:textColor="#fff"
+        android:text="@string/sign_in_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <LinearLayout
+        android:layout_marginTop="40dp"
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+        <ImageView
+            android:layout_gravity="center"
+            android:layout_marginStart="20dp"
+            android:src="@mipmap/ic_mail_icom"
+            android:layout_width="32dp"
+            android:layout_height="32dp"/>
+        <View
+            android:layout_marginStart="10dp"
+            android:layout_gravity="center"
+            android:background="@color/blue"
+            android:layout_width="1dp"
+            android:layout_height="40dp"/>
+        <TextView
+            android:id="@+id/email_tv"
+            android:gravity="center"
+            android:layout_marginStart="12dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/eposta_text"
+            android:textSize="20sp"
+            android:textColor="#838b8b"/>
+    </LinearLayout>
+
+    <View
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/blue"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+        <ImageView
+            android:layout_gravity="center"
+            android:layout_marginStart="20dp"
+            android:src="@mipmap/ic_password_icon"
+            android:layout_width="32dp"
+            android:layout_height="32dp"/>
+        <View
+            android:layout_marginStart="10dp"
+            android:layout_gravity="center"
+            android:background="@color/yellow"
+            android:layout_width="1dp"
+            android:layout_height="40dp"/>
+        <TextView
+            android:id="@+id/password_tv"
+            android:gravity="center"
+            android:layout_marginStart="12dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/password_text"
+            android:textSize="20sp"
+            android:textColor="#838b8b"/>
+    </LinearLayout>
+
+    <View
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/yellow"/>
+
+    <Button
+        android:id="@+id/sign_in_btn"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="10dp"
+        android:textAllCaps="false"
+        android:textSize="24sp"
+        android:textColor="@color/orange"
+        android:text="@string/signin_text"
+        android:background="@drawable/sign_in_button_background"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"/>
+    <TextView
+        android:id="@+id/forgot_password_tv"
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:textColor="#fff"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/forgot_password_text"/>
+
+
+
+
+</LinearLayout>

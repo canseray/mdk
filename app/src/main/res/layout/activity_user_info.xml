@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.login.UserInfoActivity"
+    android:orientation="vertical"
+    android:background="@color/dark_blue">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        <ImageView
+            android:layout_marginStart="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            android:id="@+id/user_info_back_img"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@mipmap/back_double_icon"/>
+        <TextView
+            app:layout_constraintStart_toEndOf="@+id/user_info_back_img"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:id="@+id/signin_sign_tv"
+            android:text="@string/user_info"
+            android:layout_marginEnd="55dp"
+            android:layout_marginStart="10dp"
+            android:textSize="22sp"
+            android:textColor="#fff"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:layout_marginTop="10dp"
+        android:paddingHorizontal="2dp"
+        android:textSize="16sp"
+        android:gravity="center"
+        android:textColor="#fff"
+        android:text="@string/user_info_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <LinearLayout
+        android:layout_marginTop="40dp"
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+        <ImageView
+            android:layout_gravity="center"
+            android:layout_marginStart="20dp"
+            android:src="@mipmap/person_icon"
+            android:layout_width="32dp"
+            android:layout_height="32dp"/>
+        <View
+            android:layout_marginStart="10dp"
+            android:layout_gravity="center"
+            android:background="@color/blue"
+            android:layout_width="1dp"
+            android:layout_height="40dp"/>
+        <TextView
+            android:id="@+id/user_info_name"
+            android:gravity="center"
+            android:layout_marginStart="12dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/name_text"
+            android:textSize="20sp"
+            android:textColor="#838b8b"/>
+    </LinearLayout>
+
+    <View
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/blue"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+        <ImageView
+            android:layout_gravity="center"
+            android:layout_marginStart="20dp"
+            android:src="@mipmap/person_add_icon"
+            android:layout_width="32dp"
+            android:layout_height="32dp"/>
+        <View
+            android:layout_marginStart="10dp"
+            android:layout_gravity="center"
+            android:background="@color/yellow"
+            android:layout_width="1dp"
+            android:layout_height="40dp"/>
+        <TextView
+            android:id="@+id/user_info_surname"
+            android:gravity="center"
+            android:layout_marginStart="12dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/surname_text"
+            android:textSize="20sp"
+            android:textColor="#838b8b"/>
+    </LinearLayout>
+
+    <View
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/yellow"/>
+
+    <Button
+        android:id="@+id/user_info_next_btn"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="10dp"
+        android:textAllCaps="false"
+        android:textSize="24sp"
+        android:textColor="#fff"
+        android:text="@string/next_text"
+        android:background="@drawable/orange_white_corner_button_background"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"/>
+
+</LinearLayout>
