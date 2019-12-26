@@ -33,4 +33,6 @@ dependencies {
     //th party lib
     implementation 'com.romandanylyk:pageindicatorview:1.0.2'
 
+    implementation 'com.squareup.okhttp3:okhttp:3.10.0'
+
 }

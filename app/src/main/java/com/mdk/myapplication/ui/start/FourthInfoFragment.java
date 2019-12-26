@@ -34,4 +34,18 @@ public class FourthInfoFragment extends Fragment {
         return rootView;
     }
 
+
+    public static Fragment fragmentFour(String topImage, String background, String title, String exp) {
+        FirstInfoFragment myFragment = new FirstInfoFragment();
+
+        Bundle args = new Bundle();
+        args.putString("topImage", topImage);
+        args.putString("background", background);
+        args.putString("title", title);
+        args.putString("exp", exp);
+        myFragment.setArguments(args);
+
+        return myFragment;
+    }
+
 }

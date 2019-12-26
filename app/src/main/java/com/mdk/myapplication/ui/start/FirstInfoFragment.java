@@ -14,13 +14,36 @@ import com.mdk.myapplication.R;
 
 public class FirstInfoFragment extends Fragment {
 
+
+    View rootView;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_first_info, container, false);
+        rootView = inflater.inflate(R.layout.fragment_first_info, container, false);
+
+        String topImage = getArguments().getString("topImage", "");
+        String background = getArguments().getString("background", "");
+        String title = getArguments().getString("title", "");
+        String exp = getArguments().getString("exp", "");
+
+
+
+        return rootView;
     }
 
+    public static Fragment fragmentOne(String topImage, String background, String title, String exp) {
+        FirstInfoFragment myFragment = new FirstInfoFragment();
 
+        Bundle args = new Bundle();
+        args.putString("topImage", topImage);
+        args.putString("background", background);
+        args.putString("title", title);
+        args.putString("exp", exp);
+        myFragment.setArguments(args);
+
+        return myFragment;
+    }
 
 
 }
