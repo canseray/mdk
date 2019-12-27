@@ -4,6 +4,7 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
 
     <application
         android:allowBackup="true"
@@ -12,24 +13,24 @@
         android:roundIcon="@mipmap/ic_logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.start.BaseInfoActivity"></activity>
-        <activity android:name=".ui.login.CongratulationsActivity">
-
-        </activity>
-        <activity android:name=".ui.login.CityInfoActivity" />
-        <activity android:name=".ui.login.ContactInfoActivity" />
-        <activity android:name=".ui.login.UserInfoActivity" />
-        <activity android:name=".ui.login.ForgotPasswordActivity" />
-        <activity android:name=".ui.login.SignInActivity" />
-        <activity android:name=".ui.start.SplashActivity">
-
-        </activity>
-        <activity android:name=".ui.home.MainActivity">
+        <activity android:name=".ui.home.MDCoinActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".ui.home.QRCodeScanActivity" />
+        <activity android:name=".ui.start.BaseInfoActivity" />
+        <activity android:name=".ui.login.CongratulationsActivity" />
+        <activity android:name=".ui.login.CityInfoActivity" />
+        <activity android:name=".ui.login.ContactInfoActivity" />
+        <activity android:name=".ui.login.UserInfoActivity" />
+        <activity android:name=".ui.login.ForgotPasswordActivity" />
+        <activity android:name=".ui.login.SignInActivity" />
+        <activity android:name=".ui.start.SplashActivity" />
+        <activity android:name=".ui.home.MainActivity">
+
         </activity>
     </application>
 
