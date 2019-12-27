@@ -17,7 +17,9 @@ import okhttp3.Request;
 import okhttp3.Response;
 
 public class APP {
-    public static String path = "http://192.168.1.75/MDK/mobil";
+   // public static String path = "http://192.168.0.10/MDK/mobil";
+
+    public static String path ="http://www.limonist.ist/MDK/mobil";
 
     public static String base64Encode(String text) {
         byte[] data = null;
@@ -42,7 +44,7 @@ public class APP {
         return text1;
     }
 
-    public static void post1(List<Pair<String, String>> nameValuePairs, String services_part, Callback callback) {
+    public static void get1(List<Pair<String, String>> nameValuePairs, String services_part, Callback callback) {
 
         try {
             FormBody.Builder formBodyBuilder = new FormBody.Builder();

@@ -1,4 +1,4 @@
-package com.mdk.myapplication.db;
+package com.mdk.myapplication.model;
 
 public class IntroScreenItem {
 

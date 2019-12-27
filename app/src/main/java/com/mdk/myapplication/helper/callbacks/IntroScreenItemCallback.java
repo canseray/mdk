@@ -1,6 +1,6 @@
 package com.mdk.myapplication.helper.callbacks;
 
-import com.mdk.myapplication.db.IntroScreenItem;
+import com.mdk.myapplication.model.IntroScreenItem;
 
 import java.util.List;
 

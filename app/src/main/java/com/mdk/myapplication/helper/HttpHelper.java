@@ -9,7 +9,9 @@ import android.util.Pair;
 
 import com.mdk.myapplication.APP;
 import com.mdk.myapplication.helper.callbacks.Callback;
-import com.mdk.myapplication.db.IntroScreenItem;
+import com.mdk.myapplication.helper.callbacks.HomeScreenCallback;
+import com.mdk.myapplication.model.HomeCardsItem;
+import com.mdk.myapplication.model.IntroScreenItem;
 import com.mdk.myapplication.helper.callbacks.IntroScreenItemCallback;
 
 import org.w3c.dom.Document;
@@ -22,9 +24,7 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
 public class HttpHelper {
-
-
-
+    private final String TAG = HttpHelper.class.getName();
 
    public static class IntroScreenRequest extends AsyncTask<String, Void, String> {
        private Context context;
@@ -45,15 +45,13 @@ public class HttpHelper {
 
             List<Pair<String, String>> nameValuePairs = new ArrayList<>();
 
-
 /*
 		nameValuePairs.add(new Pair<>("param1", APP.base64Encode("SOME_STRING_VALUE")));
 		nameValuePairs.add(new Pair<>("param2", APP.base64Encode("SOME_STRING_VALUE")));
 		nameValuePairs.add(new Pair<>("param3", APP.base64Encode("SOME_STRING_VALUE")));
 */
 
-
-            APP.post1(nameValuePairs, APP.path + "/get_intro_screen_items.php", new Callback() {
+            APP.get1(nameValuePairs, APP.path + "/get_intro_screen_items.php", new Callback() {
                 @Override
                 public void onResponse(String response) {
                     String xml = response;
@@ -71,8 +69,6 @@ public class HttpHelper {
                                 part3 = APP.base64Decode(APP.getElement(parse, "part3"));
                                 part4 = APP.base64Decode(APP.getElement(parse, "part4"));
                             }
-
-
 
 
                             if (part3.contentEquals("")) {
@@ -100,6 +96,7 @@ public class HttpHelper {
                                             results.add(ai);
                                         }
                                         introScreenItemCallback.onSuccess(results);
+
                                     }
 
                                     //return "true";
@@ -130,7 +127,6 @@ public class HttpHelper {
             });
             return "false";
 
-
         }
 
         protected void onPostExecute(String result) {
@@ -147,4 +143,70 @@ public class HttpHelper {
             }
         }
     }
+
+    public static class HomeScreenRequest extends AsyncTask<String, Void, String>{
+        private Context context;
+        private HomeScreenCallback homeScreenCallback;
+
+        public HomeScreenRequest(Context context, HomeScreenCallback homeScreenCallback) {
+            this.context = context;
+            this.homeScreenCallback = homeScreenCallback;
+        }
+
+        ArrayList<HomeCardsItem> results;
+        String[] part11;
+
+        @Override
+        protected String doInBackground(String... strings) {
+
+            results = new ArrayList<>();
+
+            List<Pair<String, String>> nameValuePairs = new ArrayList<>();
+
+            APP.get1(nameValuePairs, APP.path + "/init_scr.php", new Callback() {
+                @Override
+                public void onResponse(String response) {
+
+                    String xml = response;
+                    if (xml != null && !xml.contentEquals("") && !xml.contentEquals("fail")){
+                        try{
+                            DocumentBuilder newDocumentBuilder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
+                            Document parse = newDocumentBuilder.parse(new ByteArrayInputStream(xml.getBytes()));
+
+                            part11 = APP.base64Decode(APP.getElement(parse, "part11")).split("\\[##\\]");
+
+                            if (!part11[0].contentEquals("")){
+                                for (int i = 0; i < part11.length; i++){
+                                    String[] temp = part11[i].split("\\[#\\]");
+                                    HomeCardsItem ai = new HomeCardsItem (
+                                            temp.length > 0 ? temp[0] : "", temp.length > 1 ? temp[1] : "",
+                                            temp.length > 2 ? temp[2] : "", temp.length > 3 ? temp[3] : "",
+                                            temp.length > 4 ? temp[4] : "");
+
+                                    results.add(ai);
+                                }
+                                homeScreenCallback.onSuccess(results);
+                            } else {
+                                homeScreenCallback.onError();
+                            }
+
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    } else {
+
+                    }
+                }
+            });
+
+            return "false";
+        }
+    }
 }
+
+
+
+
+
+
+

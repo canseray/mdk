@@ -8,13 +8,36 @@
     tools:context=".ui.start.FirstInfoFragment">
 
     <ImageView
+        android:id="@+id/first_fragment_background"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@mipmap/info1_arkaplan"/>
+        android:background="#545454"/>
 
     <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@mipmap/info01_onekran" />
+        android:id="@+id/first_fragment_image"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="63dp"
+        android:background="#ddd" />
+
+    <TextView
+        android:textColor="#fff"
+        android:id="@+id/firs_fragment_title"
+        android:layout_width="200dp"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="193dp" />
+
+    <TextView
+        android:textColor="#fff"
+        android:id="@+id/first_fragment_exp"
+        android:layout_width="400dp"
+        android:layout_height="100dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="17dp" />
 
 </RelativeLayout>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView app:cardCornerRadius="10dp"
+    app:cardBackgroundColor="@color/black_trans"
+    android:layout_row="0"
+    android:layout_column="0"
+    android:layout_width="120dp"
+    android:layout_height="144dp"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/image_cv"
+            android:src="@mipmap/kuaforhizmetleri"
+            android:layout_width="100dp"
+            android:layout_height="100dp"/>
+        <TextView
+            android:id="@+id/title_cv"
+            android:gravity="center"
+            android:textColor="#fff"
+            android:text="@string/hairdresser_service"
+            android:lines="2"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

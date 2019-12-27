@@ -8,7 +8,7 @@ import android.os.Bundle;
 
 import com.mdk.myapplication.R;
 import com.mdk.myapplication.adapter.BaseInfoAdapter;
-import com.mdk.myapplication.db.IntroScreenItem;
+import com.mdk.myapplication.model.IntroScreenItem;
 import com.mdk.myapplication.helper.HttpHelper;
 import com.mdk.myapplication.helper.callbacks.IntroScreenItemCallback;
 import com.mdk.myapplication.ui.base.BaseActivity;
@@ -30,7 +30,6 @@ public class BaseInfoActivity extends BaseActivity {
         final PageIndicatorView pageIndicatorView = setPageIndicatorView(R.id.pageIndicatorView);
 
 
-
         new HttpHelper.IntroScreenRequest(this, new IntroScreenItemCallback() {
             @Override
             public void onUpdate() {
@@ -50,7 +49,10 @@ public class BaseInfoActivity extends BaseActivity {
             @Override
             public void onSuccess(List<IntroScreenItem> introScreenItemList) {
                 ArrayList<Fragment> fragmentArrayList = new ArrayList<>();
-
+                fragmentArrayList.add(new FirstInfoFragment());
+                fragmentArrayList.add(new SecondInfoFragment());
+                fragmentArrayList.add(new ThirdInfoFragment());
+                fragmentArrayList.add(new FourthInfoFragment());
 
                 for(int i=0;i<introScreenItemList.size()-1;i++){
 
@@ -72,6 +74,7 @@ public class BaseInfoActivity extends BaseActivity {
                         fragmentArrayList.add(FourthInfoFragment.fragmentFour(introScreenItem.getImage_path(),introScreenItem.getImage_back_url(),introScreenItem.getTitle(),introScreenItem.getExp()));
 
                     }
+
                 }
 
                 final BaseInfoAdapter viewPagerAdapter = new BaseInfoAdapter(getSupportFragmentManager(), fragmentArrayList);
@@ -81,10 +84,12 @@ public class BaseInfoActivity extends BaseActivity {
 
                 setViewPageListener(viewPager, pageIndicatorView);
 
+
             }
         }).execute();
 
     }
+
 
 
     private PageIndicatorView setPageIndicatorView(int pageIndicatorId) {
@@ -115,10 +120,6 @@ public class BaseInfoActivity extends BaseActivity {
 
 
     }
-
-    ///////////////////////////
-
-
 
 }
 
