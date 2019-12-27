@@ -59,14 +59,15 @@
             android:background="@color/blue"
             android:layout_width="1dp"
             android:layout_height="40dp"/>
-        <TextView
+        <EditText
             android:id="@+id/user_info_name"
             android:gravity="center"
             android:layout_marginStart="12dp"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="@string/name_text"
+            android:hint="@string/name_text"
             android:textSize="20sp"
+            android:textColorHint="#838b8b"
             android:textColor="#838b8b"/>
     </LinearLayout>
 
@@ -92,14 +93,15 @@
             android:background="@color/yellow"
             android:layout_width="1dp"
             android:layout_height="40dp"/>
-        <TextView
+        <EditText
             android:id="@+id/user_info_surname"
             android:gravity="center"
             android:layout_marginStart="12dp"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="@string/surname_text"
+            android:hint="@string/surname_text"
             android:textSize="20sp"
+            android:textColorHint="#838b8b"
             android:textColor="#838b8b"/>
     </LinearLayout>
 

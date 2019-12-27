@@ -2,10 +2,14 @@ package com.mdk.myapplication.ui.login;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.mdk.myapplication.R;
 import com.mdk.myapplication.ui.base.BaseActivity;
@@ -16,6 +20,7 @@ import org.w3c.dom.Text;
 public class SignInActivity extends BaseActivity {
     private final static String TAG = SignInActivity.class.getName();
     private final Context context = this;
+    private EditText emailTv, passwordTv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,8 +31,9 @@ public class SignInActivity extends BaseActivity {
         final ImageView exitButton = findViewById(R.id.signin_exit_img);
         final TextView newUserButton = findViewById(R.id.signin_new_tv);
         final TextView forgotPassword = findViewById(R.id.forgot_password_tv);
-        final TextView emailTv = findViewById(R.id.email_tv);
-        final TextView passwordTv = findViewById(R.id.password_tv);
+        emailTv = findViewById(R.id.email_tv);
+        passwordTv = findViewById(R.id.password_tv);
+
 
         newUserButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,7 +58,6 @@ public class SignInActivity extends BaseActivity {
         signInButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
             }
         });
     }

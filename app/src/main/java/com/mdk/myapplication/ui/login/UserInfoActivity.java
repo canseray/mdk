@@ -5,6 +5,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -21,8 +22,8 @@ public class UserInfoActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_info);
 
-        final TextView userName = findViewById(R.id.user_info_name);
-        final TextView userSurname = findViewById(R.id.user_info_surname);
+        final EditText userName = findViewById(R.id.user_info_name);
+        final EditText userSurname = findViewById(R.id.user_info_surname);
         final Button userInfoNextBtn = findViewById(R.id.user_info_next_btn);
         final ImageView userInfoBackBtn = findViewById(R.id.user_info_back_img);
 

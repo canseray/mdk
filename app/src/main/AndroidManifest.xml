@@ -21,16 +21,18 @@
         <activity android:name=".ui.login.ContactInfoActivity" />
         <activity android:name=".ui.login.UserInfoActivity" />
         <activity android:name=".ui.login.ForgotPasswordActivity" />
-        <activity android:name=".ui.login.SignInActivity" />
-        <activity android:name=".ui.start.SplashActivity">
+        <activity android:name=".ui.login.SignInActivity" >
 
         </activity>
-        <activity android:name=".ui.home.MainActivity">
+        <activity android:name=".ui.start.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".ui.home.HomeActivity">
+
         </activity>
     </application>
 

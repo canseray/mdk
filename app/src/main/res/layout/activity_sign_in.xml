@@ -67,15 +67,16 @@
             android:background="@color/blue"
             android:layout_width="1dp"
             android:layout_height="40dp"/>
-        <TextView
+        <EditText
             android:id="@+id/email_tv"
             android:gravity="center"
             android:layout_marginStart="12dp"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="@string/eposta_text"
+            android:hint="@string/eposta_text"
             android:textSize="20sp"
-            android:textColor="#838b8b"/>
+            android:textColor="#838b8b"
+            android:textColorHint="#838b8b"/>
     </LinearLayout>
 
     <View
@@ -100,15 +101,16 @@
             android:background="@color/yellow"
             android:layout_width="1dp"
             android:layout_height="40dp"/>
-        <TextView
+        <EditText
             android:id="@+id/password_tv"
             android:gravity="center"
             android:layout_marginStart="12dp"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="@string/password_text"
+            android:hint="@string/password_text"
             android:textSize="20sp"
-            android:textColor="#838b8b"/>
+            android:textColor="#838b8b"
+            android:textColorHint="#838b8b"/>
     </LinearLayout>
 
     <View

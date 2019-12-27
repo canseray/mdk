@@ -5,6 +5,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -23,7 +24,7 @@ public class ForgotPasswordActivity extends BaseActivity {
 
         final Button sendButton = findViewById(R.id.forgot_password_send_btn);
         final ImageView backButton = findViewById(R.id.forgot_password_back_img);
-        final TextView forgotEmailTv = findViewById(R.id.forgot_password_tv);
+        final EditText forgotEmailTv = findViewById(R.id.forgot_password_tv);
 
 
         backButton.setOnClickListener(new View.OnClickListener() {

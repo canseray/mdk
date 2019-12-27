@@ -10,9 +10,11 @@ import android.util.Pair;
 import com.mdk.myapplication.APP;
 import com.mdk.myapplication.helper.callbacks.Callback;
 import com.mdk.myapplication.helper.callbacks.HomeScreenCallback;
+import com.mdk.myapplication.helper.callbacks.LoginCallback;
 import com.mdk.myapplication.model.HomeCardsItem;
 import com.mdk.myapplication.model.IntroScreenItem;
 import com.mdk.myapplication.helper.callbacks.IntroScreenItemCallback;
+import com.mdk.myapplication.model.Login;
 
 import org.w3c.dom.Document;
 
@@ -153,8 +155,8 @@ public class HttpHelper {
             this.homeScreenCallback = homeScreenCallback;
         }
 
-        ArrayList<HomeCardsItem> results;
-        String[] part11;
+         ArrayList<HomeCardsItem> results;
+         String[] part11;
 
         @Override
         protected String doInBackground(String... strings) {
@@ -200,6 +202,30 @@ public class HttpHelper {
             });
 
             return "false";
+        }
+    }
+
+    public static class LoginRequest extends AsyncTask<String, Void, String>{
+       private Context context;
+       private LoginCallback loginCallback;
+
+       public LoginRequest(Context context, LoginCallback loginCallback){
+           this.context = context;
+           this.loginCallback = loginCallback;
+       }
+
+        @Override
+        protected String doInBackground(String... strings) {
+
+            return null;
+        }
+    }
+
+    public static class NewAccountRequest extends AsyncTask<String, Void, String>{
+
+        @Override
+        protected String doInBackground(String... strings) {
+            return null;
         }
     }
 }

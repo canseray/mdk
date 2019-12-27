@@ -12,8 +12,10 @@ import java.io.UnsupportedEncodingException;
 import java.util.List;
 
 import okhttp3.FormBody;
+import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
+import okhttp3.RequestBody;
 import okhttp3.Response;
 
 public class APP {
@@ -67,6 +69,35 @@ public class APP {
               //  return response.body().string();
             } catch (IOException e) {
             //    return "fail";
+            }
+        } catch (Exception ex) {
+            //return "fail";
+        }
+    }
+
+    public static void post1(List<Pair<String, String>> nameValuePairs, String services_part, Callback callback) {
+
+        try {
+            FormBody.Builder formBodyBuilder = new FormBody.Builder();
+            for (Pair<String, String> pair : nameValuePairs) {
+                formBodyBuilder.add(pair.first, pair.second);
+            }
+            FormBody formBody = formBodyBuilder.build();
+
+            Request.Builder builder = new Request.Builder();
+
+            builder = builder.url(services_part);
+            builder = builder.post(formBody);
+            Request request = builder.build();
+
+            OkHttpClient okHttpClient = new OkHttpClient();
+            Response response = null;
+            try {
+                response = okHttpClient.newCall(request).execute();
+                callback.onResponse(response.body().string().replaceAll("[\\t\\n\\r]+",""));
+                //  return response.body().string();
+            } catch (IOException e) {
+                //    return "fail";
             }
         } catch (Exception ex) {
             //return "fail";

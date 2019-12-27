@@ -16,16 +16,15 @@ import com.mdk.myapplication.ui.base.BaseActivity;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends BaseActivity {
-    private static final String TAG = MainActivity.class.getName();
+public class HomeActivity extends BaseActivity {
+    private static final String TAG = HomeActivity.class.getName();
     private Context context = this;
     private RecyclerView cardRecyclerView;
-    private ArrayList<HomeCardsItem> homeCardsItems;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_home);
 
         cardRecyclerView = findViewById(R.id.card_rv);
 
@@ -33,6 +32,8 @@ public class MainActivity extends BaseActivity {
         layoutManager.setGapStrategy(StaggeredGridLayoutManager.GAP_HANDLING_MOVE_ITEMS_BETWEEN_SPANS);
         cardRecyclerView.setLayoutManager(layoutManager);
         cardRecyclerView.setHasFixedSize(true);
+
+        final ArrayList<HomeCardsItem> homeCardsItems = new ArrayList<>();
 
         new HttpHelper.HomeScreenRequest(this, new HomeScreenCallback() {
             @Override
