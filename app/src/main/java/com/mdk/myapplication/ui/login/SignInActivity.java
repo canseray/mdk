@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Pair;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -12,10 +13,16 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.mdk.myapplication.R;
+import com.mdk.myapplication.helper.HttpHelper;
+import com.mdk.myapplication.helper.callbacks.LoginCallback;
 import com.mdk.myapplication.ui.base.BaseActivity;
+import com.mdk.myapplication.ui.home.HomeActivity;
 import com.mdk.myapplication.ui.start.FourthInfoFragment;
 
 import org.w3c.dom.Text;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class SignInActivity extends BaseActivity {
     private final static String TAG = SignInActivity.class.getName();
@@ -33,6 +40,7 @@ public class SignInActivity extends BaseActivity {
         final TextView forgotPassword = findViewById(R.id.forgot_password_tv);
         emailTv = findViewById(R.id.email_tv);
         passwordTv = findViewById(R.id.password_tv);
+
 
 
         newUserButton.setOnClickListener(new View.OnClickListener() {
@@ -58,7 +66,34 @@ public class SignInActivity extends BaseActivity {
         signInButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                final String emailTvInput = emailTv.getText().toString();
+                final String passwordTvInput = passwordTv.getText().toString();
+
+                List<Pair<String, String>> nameValuePairs2;
+
+                nameValuePairs2 = new ArrayList<Pair<String, String>>();
+
+                Pair<String, String> emailPair2 = new Pair<>("param1", emailTvInput);
+                Pair<String, String> passwordPair2 = new Pair<>("param2", passwordTvInput);
+
+                nameValuePairs2.add(emailPair2);
+                nameValuePairs2.add(passwordPair2);
+
+                new HttpHelper.LoginRequest(context, nameValuePairs2, new LoginCallback() {
+                    @Override
+                    public void onSuccess() {
+                        startAnotherActivity(context, HomeActivity.class);
+                    }
+
+                    @Override
+                    public void onError() {
+
+                    }
+                }).execute();
             }
         });
+
+
+
     }
 }

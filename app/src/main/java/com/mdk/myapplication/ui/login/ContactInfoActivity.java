@@ -9,7 +9,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.mdk.myapplication.R;
+import com.mdk.myapplication.model.NewAccount;
 import com.mdk.myapplication.ui.base.BaseActivity;
+import com.mdk.myapplication.util.UtilObject;
 
 public class ContactInfoActivity extends BaseActivity {
     private final static String TAG = ContactInfoActivity.class.getName();
@@ -36,6 +38,15 @@ public class ContactInfoActivity extends BaseActivity {
         contactNextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                final String mailTvInput = contactMailTv.getText().toString();
+                final String phoneTvInput = contactPhoneTv.getText().toString();
+                final String passwordTvText = contactPasswordTv.getText().toString();
+
+                UtilObject.newAccount.setEmail(mailTvInput);
+                UtilObject.newAccount.setMobile(phoneTvInput);
+                UtilObject.newAccount.setPass(passwordTvText);
+
                 startAnotherActivity(context, CityInfoActivity.class);
             }
         });

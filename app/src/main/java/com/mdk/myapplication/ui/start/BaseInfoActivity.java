@@ -5,6 +5,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 
 import com.mdk.myapplication.R;
 import com.mdk.myapplication.adapter.BaseInfoAdapter;
@@ -49,18 +50,13 @@ public class BaseInfoActivity extends BaseActivity {
             @Override
             public void onSuccess(List<IntroScreenItem> introScreenItemList) {
                 ArrayList<Fragment> fragmentArrayList = new ArrayList<>();
-                fragmentArrayList.add(new FirstInfoFragment());
-                fragmentArrayList.add(new SecondInfoFragment());
-                fragmentArrayList.add(new ThirdInfoFragment());
-                fragmentArrayList.add(new FourthInfoFragment());
 
-                for(int i=0;i<introScreenItemList.size()-1;i++){
+                for(int i=0;i<introScreenItemList.size();i++){
 
                     IntroScreenItem introScreenItem = introScreenItemList.get(i);
 
                     if(i == 0){
                         fragmentArrayList.add(FirstInfoFragment.fragmentOne(introScreenItem.getImage_path(),introScreenItem.getImage_back_url(),introScreenItem.getTitle(),introScreenItem.getExp()));
-
                     }
                     if(i == 1){
                         fragmentArrayList.add(SecondInfoFragment.fragmentTwo(introScreenItem.getImage_path(),introScreenItem.getImage_back_url(),introScreenItem.getTitle(),introScreenItem.getExp()));
@@ -116,8 +112,6 @@ public class BaseInfoActivity extends BaseActivity {
 
             }
         });
-
-
 
     }
 

@@ -2,6 +2,7 @@ package com.mdk.myapplication.ui.home;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.util.Pair;
 
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
@@ -33,12 +34,11 @@ public class HomeActivity extends BaseActivity {
         cardRecyclerView.setLayoutManager(layoutManager);
         cardRecyclerView.setHasFixedSize(true);
 
-        final ArrayList<HomeCardsItem> homeCardsItems = new ArrayList<>();
 
         new HttpHelper.HomeScreenRequest(this, new HomeScreenCallback() {
             @Override
             public void onSuccess(List<HomeCardsItem> homeCardsItemList) {
-                HomeCardsAdapter homeCardsAdapter = new HomeCardsAdapter(context,homeCardsItems);
+                HomeCardsAdapter homeCardsAdapter = new HomeCardsAdapter(context,homeCardsItemList);
                 cardRecyclerView.setAdapter(homeCardsAdapter);
             }
 
@@ -47,5 +47,8 @@ public class HomeActivity extends BaseActivity {
 
             }
         }).execute();
+
     }
+
+
 }

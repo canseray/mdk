@@ -25,7 +25,7 @@ public class HomeCardsAdapter extends RecyclerView.Adapter<HomeCardsAdapter.View
     private LayoutInflater layoutInflater;
     private HomeCardsAdapter.ItemClickListener itemClickListener;
 
-    public HomeCardsAdapter(Context context, ArrayList<HomeCardsItem> homeCardsItemArrayList){
+    public HomeCardsAdapter(Context context, List<HomeCardsItem> homeCardsItemArrayList){
         this.layoutInflater = LayoutInflater.from(context);
         this.context = context;
         this.homeCardsItemList = homeCardsItemArrayList;

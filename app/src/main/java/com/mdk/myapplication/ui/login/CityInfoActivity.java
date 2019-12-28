@@ -9,7 +9,9 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 import com.mdk.myapplication.R;
+import com.mdk.myapplication.model.NewAccount;
 import com.mdk.myapplication.ui.base.BaseActivity;
+import com.mdk.myapplication.util.UtilObject;
 
 public class CityInfoActivity extends BaseActivity {
     private final static String TAG = CityInfoActivity.class.getName();
@@ -21,11 +23,23 @@ public class CityInfoActivity extends BaseActivity {
         setContentView(R.layout.activity_city_info);
 
         final ImageView cityInfoBackButton = findViewById(R.id.city_info_back_img);
+        final Button cityNextbutton = findViewById(R.id.city_next_btn);
+
 
         cityInfoBackButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startAnotherActivity(context, ContactInfoActivity.class);
+
+
+            }
+        });
+
+        cityNextbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                UtilObject.newAccount.setCity("1");
+
+                startAnotherActivity(context, CongratulationsActivity.class);
             }
         });
 

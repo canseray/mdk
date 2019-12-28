@@ -10,7 +10,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.mdk.myapplication.R;
+import com.mdk.myapplication.model.NewAccount;
 import com.mdk.myapplication.ui.base.BaseActivity;
+import com.mdk.myapplication.util.UtilObject;
 
 
 public class UserInfoActivity extends BaseActivity {
@@ -27,6 +29,8 @@ public class UserInfoActivity extends BaseActivity {
         final Button userInfoNextBtn = findViewById(R.id.user_info_next_btn);
         final ImageView userInfoBackBtn = findViewById(R.id.user_info_back_img);
 
+
+
         userInfoBackBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -37,6 +41,13 @@ public class UserInfoActivity extends BaseActivity {
         userInfoNextBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                final String userNameInput = userName.getText().toString();
+                final String userSurnameInput = userSurname.getText().toString();
+
+                UtilObject.newAccount.setName(userNameInput);
+                UtilObject.newAccount.setSname(userSurnameInput);
+
                 startAnotherActivity(context, ContactInfoActivity.class);
             }
         });

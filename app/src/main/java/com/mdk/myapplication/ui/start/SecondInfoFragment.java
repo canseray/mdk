@@ -31,7 +31,7 @@ public class SecondInfoFragment extends Fragment {
 
 
     public static Fragment fragmentTwo(String topImage, String background, String title, String exp) {
-        FirstInfoFragment myFragment = new FirstInfoFragment();
+        SecondInfoFragment myFragment = new SecondInfoFragment();
 
         Bundle args = new Bundle();
         args.putString("topImage", topImage);

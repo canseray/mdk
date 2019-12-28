@@ -30,7 +30,7 @@ public class ThirdInfoFragment extends Fragment {
     }
 
     public static Fragment fragmentThird(String topImage, String background, String title, String exp) {
-        FirstInfoFragment myFragment = new FirstInfoFragment();
+        ThirdInfoFragment myFragment = new ThirdInfoFragment();
 
         Bundle args = new Bundle();
         args.putString("topImage", topImage);

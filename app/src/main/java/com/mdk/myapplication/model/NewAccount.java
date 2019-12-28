@@ -7,17 +7,7 @@ public class NewAccount {
     private String pass;
     private String mobile;
     private String city;
-    private String encrypt_password;
-    private String gender;
 
-    public NewAccount(String name, String sname, String email, String pass, String mobile, String city) {
-        this.name = name;
-        this.sname = sname;
-        this.email = email;
-        this.pass = pass;
-        this.mobile = mobile;
-        this.city = city;
-    }
 
     public String getName() {
         return name;
@@ -67,19 +57,4 @@ public class NewAccount {
         this.city = city;
     }
 
-    public String getEncrypt_password() {
-        return encrypt_password;
-    }
-
-    public void setEncrypt_password(String encrypt_password) {
-        this.encrypt_password = encrypt_password;
-    }
-
-    public String getGender() {
-        return gender;
-    }
-
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
 }

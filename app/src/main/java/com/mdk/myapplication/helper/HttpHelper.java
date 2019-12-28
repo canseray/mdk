@@ -11,6 +11,7 @@ import com.mdk.myapplication.APP;
 import com.mdk.myapplication.helper.callbacks.Callback;
 import com.mdk.myapplication.helper.callbacks.HomeScreenCallback;
 import com.mdk.myapplication.helper.callbacks.LoginCallback;
+import com.mdk.myapplication.helper.callbacks.NewAccountCallback;
 import com.mdk.myapplication.model.HomeCardsItem;
 import com.mdk.myapplication.model.IntroScreenItem;
 import com.mdk.myapplication.helper.callbacks.IntroScreenItemCallback;
@@ -28,16 +29,16 @@ import javax.xml.parsers.DocumentBuilderFactory;
 public class HttpHelper {
     private final String TAG = HttpHelper.class.getName();
 
-   public static class IntroScreenRequest extends AsyncTask<String, Void, String> {
-       private Context context;
-       private IntroScreenItemCallback introScreenItemCallback;
+    public static class IntroScreenRequest extends AsyncTask<String, Void, String> {
+        private Context context;
+        private IntroScreenItemCallback introScreenItemCallback;
 
-       public IntroScreenRequest(Context context,IntroScreenItemCallback introScreenItemCallback) {
-           this.context = context;
-           this.introScreenItemCallback = introScreenItemCallback;
-       }
+        public IntroScreenRequest(Context context, IntroScreenItemCallback introScreenItemCallback) {
+            this.context = context;
+            this.introScreenItemCallback = introScreenItemCallback;
+        }
 
-       ArrayList<IntroScreenItem> results;
+        ArrayList<IntroScreenItem> results;
         String[] part1, part2;
         String part3, part4;
 
@@ -83,7 +84,6 @@ public class HttpHelper {
                                     e.printStackTrace();
                                 }
                                 String version = pInfo.versionName;
-
 
 
                                 if (part4.contentEquals(version)) {
@@ -132,21 +132,21 @@ public class HttpHelper {
         }
 
         protected void onPostExecute(String result) {
-            ProgressDialog pd= new ProgressDialog(context);
+            ProgressDialog pd = new ProgressDialog(context);
             pd.setMessage("Lütfen bekleyiniz..");
             pd.show();
 
             if (pd != null)
                 pd.dismiss();
             if (result.contentEquals("true")) {
-               // setInfoFragments();
+                // setInfoFragments();
             } else {
                 // Kullanıcıya hata hakkında bilgi vermek için kullanılır. Toast mesajı olabilir, AlertDialog olabilir.
             }
         }
     }
 
-    public static class HomeScreenRequest extends AsyncTask<String, Void, String>{
+    public static class HomeScreenRequest extends AsyncTask<String, Void, String> {
         private Context context;
         private HomeScreenCallback homeScreenCallback;
 
@@ -155,8 +155,8 @@ public class HttpHelper {
             this.homeScreenCallback = homeScreenCallback;
         }
 
-         ArrayList<HomeCardsItem> results;
-         String[] part11;
+        ArrayList<HomeCardsItem> results;
+        String[] part11;
 
         @Override
         protected String doInBackground(String... strings) {
@@ -170,17 +170,17 @@ public class HttpHelper {
                 public void onResponse(String response) {
 
                     String xml = response;
-                    if (xml != null && !xml.contentEquals("") && !xml.contentEquals("fail")){
-                        try{
+                    if (xml != null && !xml.contentEquals("") && !xml.contentEquals("fail")) {
+                        try {
                             DocumentBuilder newDocumentBuilder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
                             Document parse = newDocumentBuilder.parse(new ByteArrayInputStream(xml.getBytes()));
 
                             part11 = APP.base64Decode(APP.getElement(parse, "part11")).split("\\[##\\]");
 
-                            if (!part11[0].contentEquals("")){
-                                for (int i = 0; i < part11.length; i++){
+                            if (!part11[0].contentEquals("")) {
+                                for (int i = 0; i < part11.length; i++) {
                                     String[] temp = part11[i].split("\\[#\\]");
-                                    HomeCardsItem ai = new HomeCardsItem (
+                                    HomeCardsItem ai = new HomeCardsItem(
                                             temp.length > 0 ? temp[0] : "", temp.length > 1 ? temp[1] : "",
                                             temp.length > 2 ? temp[2] : "", temp.length > 3 ? temp[3] : "",
                                             temp.length > 4 ? temp[4] : "");
@@ -205,30 +205,116 @@ public class HttpHelper {
         }
     }
 
-    public static class LoginRequest extends AsyncTask<String, Void, String>{
-       private Context context;
-       private LoginCallback loginCallback;
+    public static class LoginRequest extends AsyncTask<String, Void, String> {
+        private List<Pair<String, String>> nameValuePairs;
+        private Context context;
+        private LoginCallback loginCallback;
 
-       public LoginRequest(Context context, LoginCallback loginCallback){
-           this.context = context;
-           this.loginCallback = loginCallback;
-       }
+        public LoginRequest(Context context, List<Pair<String, String>> nameValuePairs, LoginCallback loginCallback) {
+            this.context = context;
+            this.nameValuePairs = nameValuePairs;
+            this.loginCallback = loginCallback;
+        }
+
+        ArrayList<Login> results;
+        String part1, part2, part3;
 
         @Override
         protected String doInBackground(String... strings) {
 
-            return null;
+            results = new ArrayList<>();
+
+
+            APP.post1(nameValuePairs, APP.path + "/account_panel/login.php", new Callback() {
+                @Override
+                public void onResponse(String response) {
+
+                    String xml = response;
+                    if (xml != null && !xml.contentEquals("") && !xml.contentEquals("fail")) {
+                        try {
+                            DocumentBuilder newDocumentBuilder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
+                            Document parse = newDocumentBuilder.parse(new ByteArrayInputStream(xml.getBytes()));
+
+                            part1 = APP.base64Decode(APP.getElement(parse, "part1"));
+                            part2 = APP.base64Decode(APP.getElement(parse, "part2"));
+                            part3 = APP.base64Decode(APP.getElement(parse, "part3"));
+
+                            if (part1.contentEquals("OK")){
+                                loginCallback.onSuccess();
+                            } else {
+                                loginCallback.onError();
+                            }
+
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    } else {
+
+                    }
+                }
+            });
+
+            return "false";
         }
     }
 
-    public static class NewAccountRequest extends AsyncTask<String, Void, String>{
+    public static class NewAccountRequest extends AsyncTask<String, Void, String> {
+
+        private List<Pair<String, String>> nameValuePairs;
+        private Context context;
+        private NewAccountCallback newAccountCallback;
+
+        public NewAccountRequest(Context context, List<Pair<String, String>> nameValuePairs, NewAccountCallback newAccountCallback) {
+            this.context = context;
+            this.nameValuePairs = nameValuePairs;
+            this.newAccountCallback = newAccountCallback;
+        }
+
+        ArrayList<HomeCardsItem> results;
+        String part1, part2, part3, part4;
 
         @Override
         protected String doInBackground(String... strings) {
-            return null;
+
+            results = new ArrayList<>();
+
+
+            APP.post1(nameValuePairs, APP.path + "/account_panel/new_account.php", new Callback() {
+                @Override
+                public void onResponse(String response) {
+
+                    String xml = response;
+                    if (xml != null && !xml.contentEquals("") && !xml.contentEquals("fail")) {
+                        try {
+                            DocumentBuilder newDocumentBuilder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
+                            Document parse = newDocumentBuilder.parse(new ByteArrayInputStream(xml.getBytes()));
+
+                            part1 = APP.base64Decode(APP.getElement(parse, "part1"));
+                            part2 = APP.base64Decode(APP.getElement(parse, "part2"));
+                            part3 = APP.base64Decode(APP.getElement(parse, "part3"));
+                            part4 = APP.base64Decode(APP.getElement(parse, "part4"));
+
+                            if (part1.contentEquals("OK")){
+                                newAccountCallback.onSuccess();
+                            } else {
+                                newAccountCallback.onError(part2);
+                            }
+
+
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    } else {
+
+                    }
+                }
+            });
+
+            return "false";
         }
     }
 }
+
 
 
 

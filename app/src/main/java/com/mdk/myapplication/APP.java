@@ -1,6 +1,7 @@
 package com.mdk.myapplication;
 
 import android.util.Base64;
+import android.util.Log;
 import android.util.Pair;
 
 import com.mdk.myapplication.helper.callbacks.Callback;
@@ -68,9 +69,12 @@ public class APP {
                 callback.onResponse(response.body().string().replaceAll("[\\t\\n\\r]+",""));
               //  return response.body().string();
             } catch (IOException e) {
+                Log.d("veri","");
             //    return "fail";
             }
         } catch (Exception ex) {
+            Log.d("veri","");
+
             //return "fail";
         }
     }
@@ -97,9 +101,13 @@ public class APP {
                 callback.onResponse(response.body().string().replaceAll("[\\t\\n\\r]+",""));
                 //  return response.body().string();
             } catch (IOException e) {
+                Log.d("veri","");
+
                 //    return "fail";
             }
         } catch (Exception ex) {
+            Log.d("veri","");
+
             //return "fail";
         }
     }
