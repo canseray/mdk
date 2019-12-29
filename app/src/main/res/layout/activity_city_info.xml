@@ -38,11 +38,25 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <TextView
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="10dp"
+        android:text="bu button ile cityi statik 1-adana gönderiyoruz"
+        android:textColor="#fff"
+        app:layout_constraintBottom_toTopOf="@+id/city_next_btn"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"/>
+
     <Button
+        android:text="1 adana"
+        android:background="@drawable/white_orange_corner_background"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginBottom="50dp"
         android:id="@+id/city_next_btn"
-        android:layout_width="400dp"
+        android:layout_width="300dp"
         android:layout_height="50dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
