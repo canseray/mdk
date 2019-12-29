@@ -36,6 +36,10 @@
     <string name="suggestion">Görüş ve Öneriler</string>
     <string name="appointment">Randevu Al</string>
     <string name="check_in">Check-in Yap</string>
+    <string name="my_gift_text">HEDİYE / PROMOSYONLARIM</string>
+    <string name="scan_qr_code">QR KODU TARAT</string>
+    <string name="title_activity_check_in_maps">Map</string>
+    <string name="check_in_text">CHECK-IN YAP</string>
 
 
 </resources>
