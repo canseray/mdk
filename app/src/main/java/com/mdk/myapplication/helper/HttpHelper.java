@@ -242,7 +242,7 @@ public class HttpHelper {
                             if (part1.contentEquals("OK")){
                                 loginCallback.onSuccess();
                             } else {
-                                loginCallback.onError();
+                                loginCallback.onError(part2);
                             }
 
                         } catch (Exception e) {

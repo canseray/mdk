@@ -2,5 +2,5 @@ package com.mdk.myapplication.helper.callbacks;
 
 public interface LoginCallback {
     void onSuccess();
-    void onError();
+    void onError(String error);
 }

@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.mdk.myapplication.R;
 import com.mdk.myapplication.helper.HttpHelper;
@@ -80,7 +81,8 @@ public class SignInActivity extends BaseActivity {
                     }
 
                     @Override
-                    public void onError() {
+                    public void onError(String error) {
+                        Toast.makeText(SignInActivity.this, error,Toast.LENGTH_SHORT).show();
 
                     }
                 }).execute();
