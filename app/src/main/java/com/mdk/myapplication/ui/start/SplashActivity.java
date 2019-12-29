@@ -35,7 +35,7 @@ public class SplashActivity extends BaseActivity {
                 finally
                 {
                     //if first begin in app
-                    startAnotherActivity(context, BaseInfoActivity.class);
+                    startAnotherActivity(context, BaseIntroActivity.class);
 
                     //else if not first begin && not current user
                     //start signup act

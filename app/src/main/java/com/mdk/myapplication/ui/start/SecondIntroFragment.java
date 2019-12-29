@@ -1,6 +1,5 @@
 package com.mdk.myapplication.ui.start;
 
-import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -12,18 +11,21 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.mdk.myapplication.R;
 
-public class FirstInfoFragment extends Fragment {
+
+public class SecondIntroFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        final View rootView = inflater.inflate(R.layout.fragment_first_info, container, false);
-        final ImageView fragmentImage = rootView.findViewById(R.id.first_fragment_image);
-        final ImageView fragmentBackground = rootView.findViewById(R.id.first_fragment_background);
-        final TextView fragmentTitle = rootView.findViewById(R.id.firs_fragment_title);
-        final TextView fragmentExp = rootView.findViewById(R.id.first_fragment_exp);
+        // Inflate the layout for this fragment
+        final View rootView = inflater.inflate(R.layout.fragment_second_intro, container, false);
+        final ImageView fragmentImage = rootView.findViewById(R.id.second_fragment_image);
+        final ImageView fragmentBackground = rootView.findViewById(R.id.second_fragment_background);
+        final TextView fragmentTitle = rootView.findViewById(R.id.second_fragment_title);
+        final TextView fragmentExp = rootView.findViewById(R.id.second_fragment_exp);
 
         String topImage = getArguments().getString("topImage", "");
         String background = getArguments().getString("background", "");
@@ -33,11 +35,15 @@ public class FirstInfoFragment extends Fragment {
         fragmentTitle.setText(title);
         fragmentExp.setText(exp);
 
+        Glide.with(this).load(Uri.parse(background)).into(fragmentBackground);
+        Glide.with(this).load(Uri.parse(topImage)).into(fragmentImage);
+
         return rootView;
     }
 
-    public static Fragment fragmentOne(String topImage, String background, String title, String exp) {
-        FirstInfoFragment myFragment = new FirstInfoFragment();
+
+    public static Fragment fragmentTwo(String topImage, String background, String title, String exp) {
+        SecondIntroFragment myFragment = new SecondIntroFragment();
 
         Bundle args = new Bundle();
         args.putString("topImage", topImage);
@@ -48,6 +54,5 @@ public class FirstInfoFragment extends Fragment {
 
         return myFragment;
     }
-
 
 }

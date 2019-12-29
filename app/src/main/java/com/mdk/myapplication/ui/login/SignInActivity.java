@@ -2,24 +2,18 @@ package com.mdk.myapplication.ui.login;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.util.Pair;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.mdk.myapplication.R;
 import com.mdk.myapplication.helper.HttpHelper;
 import com.mdk.myapplication.helper.callbacks.LoginCallback;
 import com.mdk.myapplication.ui.base.BaseActivity;
 import com.mdk.myapplication.ui.home.HomeActivity;
-import com.mdk.myapplication.ui.start.FourthInfoFragment;
-
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.List;

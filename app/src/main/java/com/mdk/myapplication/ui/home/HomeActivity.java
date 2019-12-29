@@ -2,7 +2,6 @@ package com.mdk.myapplication.ui.home;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.util.Pair;
 
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
@@ -13,8 +12,6 @@ import com.mdk.myapplication.helper.HttpHelper;
 import com.mdk.myapplication.helper.callbacks.HomeScreenCallback;
 import com.mdk.myapplication.model.HomeCardsItem;
 import com.mdk.myapplication.ui.base.BaseActivity;
-
-import java.util.ArrayList;
 import java.util.List;
 
 public class HomeActivity extends BaseActivity {
@@ -32,8 +29,8 @@ public class HomeActivity extends BaseActivity {
         StaggeredGridLayoutManager layoutManager = new StaggeredGridLayoutManager(3,StaggeredGridLayoutManager.VERTICAL);
         layoutManager.setGapStrategy(StaggeredGridLayoutManager.GAP_HANDLING_MOVE_ITEMS_BETWEEN_SPANS);
         cardRecyclerView.setLayoutManager(layoutManager);
-        cardRecyclerView.setHasFixedSize(true);
-
+        cardRecyclerView.setNestedScrollingEnabled(false);
+        //cardRecyclerView.setHasFixedSize(true);
 
         new HttpHelper.HomeScreenRequest(this, new HomeScreenCallback() {
             @Override
@@ -41,7 +38,6 @@ public class HomeActivity extends BaseActivity {
                 HomeCardsAdapter homeCardsAdapter = new HomeCardsAdapter(context,homeCardsItemList);
                 cardRecyclerView.setAdapter(homeCardsAdapter);
             }
-
             @Override
             public void onError() {
 
@@ -49,6 +45,5 @@ public class HomeActivity extends BaseActivity {
         }).execute();
 
     }
-
 
 }
